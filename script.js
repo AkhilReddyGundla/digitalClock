@@ -5,7 +5,15 @@ const currDate = document.querySelector(".date")
 setInterval(function(){
     const date = new Date()
     clock.innerHTML = date.toLocaleTimeString()
-    currDate.innerHTML = date.getDay()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
-    console.log(date)
+    
+    let day
+    let month =  date.getMonth();
+    if(date.getDay()<9){
+        day = "0" + date.getDay()
+    }
+    if(date.getMonth()<9){
+        month ="0" + month
+    }
+    currDate.innerHTML = day + "/" + month + "/" + date.getFullYear()
+
 },1000)
-// const date = new Date()
